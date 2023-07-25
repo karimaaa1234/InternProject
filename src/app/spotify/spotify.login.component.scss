@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  //height: 100vh;
+}
+
+.header {
+  background-color: lightgrey;
+  border-bottom: 1px solid black;
+  padding: 20px 20px 20px 5%;
+  color: black;
+  font-size: 30px;
+  font-family: sans-serif;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 64px);
+}
+
+.content button {
+  color: rgba(30, 215, 96, 255);
+  padding: 1rem;
+  width: 40rem;
+  border-radius: 0.5rem;
+  font-size: 35px;
+  border: 1px solid grey;
+  //background-color: whitesmoke;
+}
+
+.mat-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.app-language-selector {
+  align-self: flex-end;
+}
+
+.left {
+  align-items: center;
+}

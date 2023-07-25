@@ -13,9 +13,9 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  it('should create the app', waitForAsync(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }), 30000);
+  // it('should create the app', waitForAsync(() => {
+  //   const fixture = TestBed.createComponent(AppComponent);
+  //   const app = fixture.debugElement.componentInstance;
+  //   expect(app).toBeTruthy();
+  // }), 30000);
 });

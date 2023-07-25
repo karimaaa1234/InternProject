@@ -22,8 +22,11 @@ describe('Shell', () => {
       const result = Shell.childRoutes(testRoutes);
 
       // Assert
+      // @ts-ignore
       expect(result.path).toBe('');
+      // @ts-ignore
       expect(result.children).toBe(testRoutes);
+      // @ts-ignore
       expect(result.component).toBe(ShellComponent);
     });
   });

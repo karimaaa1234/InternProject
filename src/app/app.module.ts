@@ -15,9 +15,18 @@ import { HomeModule } from './home/home.module';
 import { ShellModule } from './shell/shell.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SpotifyLoginModule } from '@app/spotify/spotify.login.module';
+import { AuthInterceptor } from '@app/auth.interceptor';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { SecureComponent } from './secure/secure.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
     BrowserModule,
     ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
     FormsModule,
@@ -30,9 +39,10 @@ import { AppRoutingModule } from './app-routing.module';
     ShellModule,
     HomeModule,
     AuthModule,
+    SpotifyLoginModule,
     AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent, SecureComponent, NotFoundComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -47,6 +57,11 @@ import { AppRoutingModule } from './app-routing.module';
     {
       provide: RouteReuseStrategy,
       useClass: RouteReusableStrategy,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
     },
   ],
   bootstrap: [AppComponent],

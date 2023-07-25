@@ -28,6 +28,7 @@ describe('LoaderComponent', () => {
     const div = element.querySelectorAll('div')[0];
 
     // Assert
+    // @ts-ignore
     expect(div.getAttribute('hidden')).not.toBeNull();
   });
 
@@ -41,6 +42,7 @@ describe('LoaderComponent', () => {
     fixture.detectChanges();
 
     // Assert
+    // @ts-ignore
     expect(div.getAttribute('hidden')).toBeNull();
   });
 
@@ -50,6 +52,7 @@ describe('LoaderComponent', () => {
     const span = element.querySelectorAll('span')[0];
 
     // Assert
+    // @ts-ignore
     expect(span.textContent).toBe('');
   });
 
@@ -63,6 +66,7 @@ describe('LoaderComponent', () => {
     fixture.detectChanges();
 
     // Assert
+    // @ts-ignore
     expect(span.textContent).toBe('testing');
   });
 });

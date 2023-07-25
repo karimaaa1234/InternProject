@@ -30,10 +30,12 @@ describe('AuthenticationGuard', () => {
   });
 
   it('should have a canActivate method', () => {
+    // @ts-ignore
     expect(typeof authenticationGuard.canActivate).toBe('function');
   });
 
   it('should return true if user is authenticated', () => {
+    // @ts-ignore
     expect(authenticationGuard.canActivate(new ActivatedRouteSnapshot(), mockSnapshot)).toBe(true);
   });
 
@@ -45,10 +47,12 @@ describe('AuthenticationGuard', () => {
     const result = authenticationGuard.canActivate(new ActivatedRouteSnapshot(), mockSnapshot);
 
     // Assert
+    // @ts-ignore
     expect(mockRouter.navigate).toHaveBeenCalledWith(['/login'], {
       queryParams: { redirect: undefined },
       replaceUrl: true,
     });
+    // @ts-ignore
     expect(result).toBe(false);
   });
 
@@ -58,6 +62,7 @@ describe('AuthenticationGuard', () => {
     mockSnapshot.url = '/about';
 
     authenticationGuard.canActivate(new ActivatedRouteSnapshot(), mockSnapshot);
+    // @ts-ignore
     expect(mockRouter.navigate).toHaveBeenCalledWith(['/login'], {
       queryParams: { redirect: mockRouter.url },
       replaceUrl: true,

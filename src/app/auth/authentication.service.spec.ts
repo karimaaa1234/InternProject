@@ -30,12 +30,15 @@ describe('AuthenticationService', () => {
 
       // Assert
       request.subscribe((credentials) => {
+        // @ts-ignore
         expect(credentials).toBeDefined();
+        // @ts-ignore
         expect(credentials.token).toBeDefined();
       });
     }));
 
     it('should authenticate user', fakeAsync(() => {
+      // @ts-ignore
       expect(credentialsService.isAuthenticated()).toBe(false);
 
       // Act
@@ -47,9 +50,13 @@ describe('AuthenticationService', () => {
 
       // Assert
       request.subscribe(() => {
+        // @ts-ignore
         expect(credentialsService.isAuthenticated()).toBe(true);
+        // @ts-ignore
         expect(credentialsService.credentials).not.toBeNull();
+        // @ts-ignore
         expect((credentialsService.credentials as Credentials).token).toBeDefined();
+        // @ts-ignore
         expect((credentialsService.credentials as Credentials).token).not.toBeNull();
       });
     }));
@@ -64,7 +71,9 @@ describe('AuthenticationService', () => {
 
       // Assert
       request.subscribe(() => {
+        // @ts-ignore
         expect(credentialsService.setCredentials).toHaveBeenCalled();
+        // @ts-ignore
         expect((credentialsService.setCredentials as jasmine.Spy).calls.mostRecent().args[1]).toBe(undefined);
       });
     }));
@@ -80,7 +89,9 @@ describe('AuthenticationService', () => {
 
       // Assert
       request.subscribe(() => {
+        // @ts-ignore
         expect(credentialsService.setCredentials).toHaveBeenCalled();
+        // @ts-ignore
         expect((credentialsService.setCredentials as jasmine.Spy).calls.mostRecent().args[1]).toBe(true);
       });
     }));
@@ -97,13 +108,16 @@ describe('AuthenticationService', () => {
 
       // Assert
       loginRequest.subscribe(() => {
+        // @ts-ignore
         expect(credentialsService.isAuthenticated()).toBe(true);
 
         const request = authenticationService.logout();
         tick();
 
         request.subscribe(() => {
+          // @ts-ignore
           expect(credentialsService.isAuthenticated()).toBe(false);
+          // @ts-ignore
           expect(credentialsService.credentials).toBeNull();
         });
       });

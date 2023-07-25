@@ -2,12 +2,14 @@
   <mat-icon>language</mat-icon>
 </button>
 <ng-template #text>
-  <button mat-raised-button color="primary" [matMenuTriggerFor]="languageMenu">
+  <button mat-raised-button [matMenuTriggerFor]="languageMenu">
     {{ currentLanguage }}
   </button>
 </ng-template>
 <mat-menu #languageMenu="matMenu">
-  <button mat-menu-item *ngFor="let language of languages" (click)="setLanguage(language)">
-    {{ language }}
-  </button>
+  <div *ngFor="let language of languages">
+    <button mat-menu-item *ngIf="language !== currentLanguage" (click)="setLanguage(language)">
+      {{ language }}
+    </button>
+  </div>
 </mat-menu>

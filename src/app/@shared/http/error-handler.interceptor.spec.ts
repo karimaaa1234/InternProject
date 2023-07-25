@@ -46,6 +46,7 @@ describe('ErrorHandlerInterceptor', () => {
       () => fail('should error'),
       () => {
         // Assert
+        // @ts-ignore
         expect((ErrorHandlerInterceptor.prototype as any).errorHandler).toHaveBeenCalled();
       }
     );
