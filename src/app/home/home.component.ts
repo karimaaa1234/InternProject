@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { finalize } from 'rxjs/operators';
 
-import { QuoteService } from './quote.service';
+import { faSpotify } from '@fortawesome/free-brands-svg-icons';
+import { AuthService } from '@app/auth/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -9,22 +9,15 @@ import { QuoteService } from './quote.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  quote: string | undefined;
-  isLoading = false;
-
-  constructor(private quoteService: QuoteService) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    this.isLoading = true;
-    this.quoteService
-      .getRandomQuote({ category: 'dev' })
-      .pipe(
-        finalize(() => {
-          this.isLoading = false;
-        })
-      )
-      .subscribe((quote: string) => {
-        this.quote = quote;
-      });
+    console.log('token is: ' + this.authService.token);
   }
+
+  signOut() {
+    this.authService.signOut();
+  }
+
+  protected readonly faSpotify = faSpotify;
 }

@@ -1,14 +1,20 @@
 <div class="container">
+  <mat-toolbar>
+    <div class="left">
+      <span class="title" translate>Spotify Search</span>
+    </div>
+    <div class="right">
+      <app-language-selector></app-language-selector>
+      <button mat-raised-button (click)="signOut()">
+        <span translate>Log Out</span>
+        <fa-icon [icon]="faSpotify"></fa-icon>
+      </button>
+    </div>
+  </mat-toolbar>
   <mat-card>
-    <p>
-      <img class="logo" src="assets/ngx-rocket-logo.png" alt="angular logo" />
-    </p>
-    <mat-card-content>
-      <mat-card-title translate>Hello world !</mat-card-title>
-      <mat-card-subtitle>
-        <app-loader [isLoading]="isLoading" [size]="1.5"></app-loader>
-        <q [hidden]="isLoading">{{ quote }}</q>
-      </mat-card-subtitle>
-    </mat-card-content>
+    <mat-form-field appearance="outline" class="search--form">
+      <mat-label>Search for a song...</mat-label>
+      <input matInput placeholder="Search..." class="search--bar" /> <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
   </mat-card>
 </div>

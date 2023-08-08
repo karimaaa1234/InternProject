@@ -10,17 +10,15 @@ import { MaterialModule } from './material.module';
 
 import { environment } from '@env/environment';
 import { RouteReusableStrategy, ApiPrefixInterceptor, ErrorHandlerInterceptor, SharedModule } from '@shared';
-import { AuthModule } from '@app/auth';
 import { HomeModule } from './home/home.module';
 import { ShellModule } from './shell/shell.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SpotifyLoginModule } from '@app/spotify/spotify.login.module';
-import { AuthInterceptor } from '@app/auth.interceptor';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { SecureComponent } from './secure/secure.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginModule } from '@app/auth/auth.module';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { TokenModule } from '@app/token/token.module';
+import { TokenInterceptor } from '@app/token/token-interceptor.service';
+import { AuthGuard } from '@app/auth/auth.guard';
 
 @NgModule({
   imports: [
@@ -28,9 +26,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserModule,
+    TokenModule,
+    LoginModule,
     ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
     FormsModule,
-    HttpClientModule,
     RouterModule,
     TranslateModule.forRoot(),
     BrowserAnimationsModule,
@@ -38,12 +37,12 @@ import { NotFoundComponent } from './not-found/not-found.component';
     SharedModule,
     ShellModule,
     HomeModule,
-    AuthModule,
-    SpotifyLoginModule,
+    OAuthModule.forRoot(),
     AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],
-  declarations: [AppComponent, LoginComponent, RegisterComponent, SecureComponent, NotFoundComponent],
+  declarations: [AppComponent],
   providers: [
+    AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiPrefixInterceptor,
@@ -55,13 +54,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
       multi: true,
     },
     {
-      provide: RouteReuseStrategy,
-      useClass: RouteReusableStrategy,
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
     },
     {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true,
+      provide: RouteReuseStrategy,
+      useClass: RouteReusableStrategy,
     },
   ],
   bootstrap: [AppComponent],

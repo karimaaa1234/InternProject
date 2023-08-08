@@ -31,7 +31,6 @@ export class AppComponent implements OnInit, OnDestroy {
     if (environment.production) {
       Logger.enableProductionMode();
     }
-
     log.debug('init');
 
     // Setup translations
