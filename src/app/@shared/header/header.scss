@@ -1,0 +1,110 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: var(--header-background);
+  color: var(--color-text);
+}
+
+.dropdown {
+  margin-left: 0.3vw;
+  margin-right: 0.5vw;
+}
+
+.menu-button {
+  color: #1ed760;
+  //padding: 1rem;
+}
+
+.menu-button mat-icon {
+  font-size: 2.8rem;
+  margin-bottom: 50%;
+}
+
+.title:hover {
+  cursor: pointer;
+}
+
+.left {
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mat-icon {
+  overflow: visible;
+}
+
+.theme--toggle {
+  margin-right: 1.5rem;
+}
+
+:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: var(--color-text);
+}
+
+:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: rgb(133, 132, 132);
+}
+
+::ng-deep.mat-button-focus-overlay {
+  background-color: transparent;
+}
+
+::ng-deep .menu {
+  margin-top: 7%;
+  background-color: var(--playlist-form);
+  color: var(--body-content);
+}
+
+.mat-menu-item {
+  color: var(--body-content);
+  font-size: 1.25rem;
+}
+
+.mat-menu-item .mat-icon {
+  color: var(--body-content);
+}
+
+.spotify {
+  color: rgba(30, 215, 96, 255);
+  font-size: 1.5rem;
+  margin-right: 15%;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  color: var(--body-content) !important;
+}
+
+::ng-deep .mat-form-field-label {
+  color: var(--body-content) !important;
+}
+
+::ng-deep .check-box {
+  margin-bottom: 5%;
+}
+::ng-deep .mat-form-field-underline {
+  background-color: grey !important;
+}
+
+::ng-deep .mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: rgba(30, 215, 96, 255) !important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: rgba(30, 215, 96, 255) !important;
+}
+::ng-deep .mat-checkbox-ripple .mat-ripple-element {
+  background-color: rgba(30, 215, 96, 255) !important;
+}
+
+::ng-deep .mat-checkbox-frame {
+  border-color: var(--body-content) !important;
+}

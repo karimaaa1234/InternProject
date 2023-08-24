@@ -27,6 +27,15 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    if (!sessionStorage.getItem('data-theme')) {
+      sessionStorage.setItem('data-theme', 'light');
+    }
+    let theme = sessionStorage.getItem('data-theme');
+
+    if (theme) {
+      console.log(theme);
+      document.documentElement.setAttribute('data-theme', theme);
+    }
     // Setup logger
     if (environment.production) {
       Logger.enableProductionMode();

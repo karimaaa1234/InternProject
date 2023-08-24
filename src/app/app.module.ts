@@ -16,9 +16,16 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginModule } from '@app/auth/auth.module';
 import { OAuthModule } from 'angular-oauth2-oidc';
-import { TokenModule } from '@app/token/token.module';
-import { TokenInterceptor } from '@app/token/token-interceptor.service';
+import { TokenInterceptor } from '@app/auth/token-interceptor.service';
 import { AuthGuard } from '@app/auth/auth.guard';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { ArtistsModule } from '@app/artists/artists.module';
+import { PlaylistsModule } from '@app/playlists/playlists.module';
+import { PlaylistsRoutingModule } from '@app/playlists/playlists-routing.module';
+
+import { MatDialogModule } from '@angular/material/dialog';
+import { TracksRoutingModule } from '@app/tracks/tracks-routing.module';
+import { TracksModule } from '@app/tracks/tracks.module';
 
 @NgModule({
   imports: [
@@ -26,16 +33,22 @@ import { AuthGuard } from '@app/auth/auth.guard';
     HttpClientModule,
     AppRoutingModule,
     BrowserModule,
-    TokenModule,
     LoginModule,
+    NgxSkeletonLoaderModule,
     ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
     FormsModule,
     RouterModule,
     TranslateModule.forRoot(),
     BrowserAnimationsModule,
+    MatDialogModule,
+    TracksRoutingModule,
+    TracksModule,
     MaterialModule,
     SharedModule,
     ShellModule,
+    PlaylistsModule,
+    PlaylistsRoutingModule,
+    ArtistsModule,
     HomeModule,
     OAuthModule.forRoot(),
     AppRoutingModule, // must be imported as the last module as it contains the fallback route

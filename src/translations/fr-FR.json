@@ -5,7 +5,7 @@
   "Home": "Accueil",
   "Logged in as": "Connecté en tant que",
   "Login": "Connexion",
-  "Logout": "Déconnexion",
+  "Log Out": "Déconnexion",
   "Password": "Mot de passe",
   "Password is required": "Mot de passe requis",
   "Username": "Identifiant",
@@ -13,5 +13,10 @@
   "Username or password incorrect.": "Identifiant ou mot de passe incorrect.",
   "Remember me": "Rester connecté",
   "Version": "Version",
-  "Spotify Search": "Spotify Recherche"
+  "Spotify Search": "Spotify Recherche",
+  "Search for an Artist...": "Rechercher un Artiste...",
+  "Search": "Rechercher",
+  "followers": "auditeurs",
+  "Preview": "Découvrir",
+  "tracks": "titres"
 }

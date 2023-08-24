@@ -1,20 +1,55 @@
 <div class="container">
-  <mat-toolbar>
-    <div class="left">
-      <span class="title" translate>Spotify Search</span>
+  <app-header></app-header>
+  <div class="content">
+    <div class="body">
+      <div class="search">
+        <mat-form-field appearance="outline" class="search--form">
+          <mat-label translate>Search for an Artist...</mat-label>
+          <input matInput placeholder="{{ 'Search' | translate }}" (keyup)="onSearch($event)" class="search--bar" />
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="loader" *ngIf="isLoading">
+        <app-home-skeleton></app-home-skeleton>
+        <app-home-skeleton></app-home-skeleton>
+        <app-home-skeleton></app-home-skeleton>
+        <app-home-skeleton></app-home-skeleton>
+        <app-home-skeleton></app-home-skeleton>
+      </div>
+      <div class="data">
+        <div *ngFor="let res of results">
+          <mat-card class="card">
+            <div *ngIf="res.images[0]">
+              <img mat-card-image src="{{ res.images[0].url }}" />
+            </div>
+            <div *ngIf="!res.images[0]">
+              <img mat-card-image src="https://i.scdn.co/image/ab6761610000e5eb15d8e761586590f74af0dd37" />
+            </div>
+            <mat-card-title class="card--title" *ngIf="res.name.length > 21">
+              <span *ngFor="let number of numbers">{{ res.name[number] }}</span
+              >...
+            </mat-card-title>
+            <mat-card-title class="card--title" *ngIf="res.name.length <= 21">
+              {{ res.name }}
+            </mat-card-title>
+            <mat-card-subtitle class="card--subtitle"
+              >{{ res.followers.total }} {{ 'followers' | translate }}</mat-card-subtitle
+            >
+
+            <button mat-raised-button (click)="viewArtist(res.id)" class="card--button">
+              {{ 'Preview' | translate }}
+            </button>
+            <!--            <div class="rating">-->
+            <!--              <mat-icon>star</mat-icon>-->
+            <!--              <mat-icon>star</mat-icon>-->
+            <!--              <mat-icon>star</mat-icon>-->
+            <!--              <mat-icon>star</mat-icon>-->
+            <!--              <mat-icon>star_half</mat-icon>-->
+            <!--            </div>-->
+          </mat-card>
+          <!--          </div>-->
+        </div>
+      </div>
     </div>
-    <div class="right">
-      <app-language-selector></app-language-selector>
-      <button mat-raised-button (click)="signOut()">
-        <span translate>Log Out</span>
-        <fa-icon [icon]="faSpotify"></fa-icon>
-      </button>
-    </div>
-  </mat-toolbar>
-  <mat-card>
-    <mat-form-field appearance="outline" class="search--form">
-      <mat-label>Search for a song...</mat-label>
-      <input matInput placeholder="Search..." class="search--bar" /> <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
-  </mat-card>
+  </div>
 </div>

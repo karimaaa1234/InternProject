@@ -1,10 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div class="container">
+  <app-header></app-header>
+  <div class="content">
+    <div class="title">{{ username }}'s Playlists</div>
+    <div class="button">
+      <button
+        class="add-button"
+        mat-icon-button
+        aria-label="Example icon button with a vertical three dot icon"
+        (mouseenter)="showText()"
+        (mouseleave)="hideText()"
+        (click)="newPlaylist()"
+      >
+        <mat-icon>add</mat-icon> <span id="addButton"></span>
+      </button>
+    </div>
+    <div class="playlists">
+      <div *ngFor="let playlist of results">
+        <mat-card class="card">
+          <div class="card-content">
+            <div
+              class="card-img"
+              *ngIf="playlist && playlist['images'] && playlist['images'][0] && playlist['images'][0]['url']"
+            >
+              <img [src]="playlist['images'][0]['url']" alt="Playlist Image" />
+            </div>
+            <div
+              class="card-img"
+              *ngIf="!playlist || !playlist['images'] || !playlist['images'][0] || !playlist['images'][0]['url']"
+            >
+              <img src="https://files.readme.io/f2e91bb-portalDocs-sonosApp-defaultArtAlone.png" alt="Playlist Image" />
+            </div>
+
+            <div class="card-titles">
+              <mat-card-title>{{ playlist['name'] }}</mat-card-title>
+              <mat-card-subtitle>{{ playlist['tracks']['total'] }} tracks</mat-card-subtitle>
+              <span>Owner: {{ playlist['owner']['display_name'] }}</span>
+              <div *ngIf="playlist['public']" class="card-component">
+                <fa-icon [icon]="faUnlockAlt"> </fa-icon> Public
+              </div>
+              <div *ngIf="!playlist['public']" class="card-component"><fa-icon [icon]="faLock"></fa-icon> Private</div>
+              <div *ngIf="playlist['description']" class="card-component">
+                <mat-card-content class="card-desc">Description: {{ playlist['description'] }}</mat-card-content>
+              </div>
+            </div>
+          </div>
+          <button mat-raised-button class="card-button" (click)="viewPlaylist(playlist['id'])">View Playlist</button>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

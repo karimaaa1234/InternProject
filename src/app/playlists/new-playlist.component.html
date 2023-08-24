@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div class="container">
+  <mat-card class="card">
+    <mat-card-title class="title">Create New Playlist</mat-card-title>
+    <form class="playlist-form">
+      <div class="playlist-input">
+        <mat-form-field class="playlist-name">
+          <mat-label>Playlist Name </mat-label>
+          <input matInput placeholder="Playlist" [(ngModel)]="playlistName" name="playlistName" />
+        </mat-form-field>
+        <mat-checkbox class="check-box" [(ngModel)]="private" name="private">Make this playlist private</mat-checkbox>
+        <mat-form-field class="playlist-desc">
+          <mat-label>Playlist Description</mat-label>
+          <textarea
+            matInput
+            placeholder="Ex. It makes me feel..."
+            maxlength="300"
+            [(ngModel)]="description"
+            name="description"
+          ></textarea>
+        </mat-form-field>
+        <div class="card-buttons">
+          <button mat-raised-button class="card-button" (click)="createPlaylist()">Create</button>
+          <button mat-raised-button class="card-button" (click)="close()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>

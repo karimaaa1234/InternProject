@@ -11,9 +11,10 @@ import { I18nModule } from '@app/i18n';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TokenComponent } from '@app/auth/token.component';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, TokenComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

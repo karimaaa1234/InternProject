@@ -1,0 +1,159 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--body-background);
+  color: var(--body-content);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--body-background);
+  color: var(--body-content);
+  min-height: calc(100vh - 64px);
+  padding-bottom: 5rem;
+}
+
+.show-button {
+  margin-top: 3rem;
+  background-color: var(--cards);
+  box-shadow: var(--button-shadow);
+  color: var(--body-content);
+}
+
+.title-card {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  align-self: center;
+  max-width: 90rem;
+  background-color: var(--cards-container);
+  box-shadow: var(--data-shadow);
+  color: var(--body-content);
+  margin-bottom: 4rem;
+  margin-top: 5rem;
+}
+
+.title-content {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  color: var(--body-content);
+  margin: 1%;
+}
+
+.playlist-name {
+  font-size: 2rem;
+}
+
+.playlist-subtitle {
+  color: var(--body-content);
+  font-size: 1.2rem;
+}
+
+.playlist-description {
+  font-size: 1.1rem;
+}
+
+.card-subtitle {
+  color: var(--body-content);
+}
+
+.playlist-img {
+  width: 15rem;
+  height: 15rem;
+}
+
+.card {
+  background-color: var(--cards);
+  color: var(--body-content);
+  margin-top: 0.2rem;
+  width: 65vw;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 0.1rem;
+  box-shadow: var(--card-shadow);
+  flex-basis: 100%;
+  overflow: hidden;
+}
+
+.card-title {
+  font-size: 1.2rem;
+}
+
+.card-index {
+  padding: 1%;
+}
+
+.duration {
+  width: 17%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 4rem;
+}
+.duration-search {
+  width: 15%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 2rem;
+}
+
+.searchSongs {
+  margin-top: 2rem;
+}
+
+.add-button button {
+  background-color: var(--button-background);
+  box-shadow: var(--button-shadow);
+  color: var(--body-content);
+}
+
+.title {
+  font-size: 2rem;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+:host ::ng-deep {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5vw;
+  margin-left: 0.3rem;
+  width: 70%;
+}
+
+.cards-container {
+  display: flex;
+  flex-basis: 100%;
+  flex-direction: column;
+  align-content: center;
+  align-self: center;
+  width: 90%;
+  max-width: 110rem;
+  flex-wrap: wrap;
+  overflow: hidden;
+  justify-content: center;
+  background-color: var(--cards-container);
+  box-shadow: var(--data-shadow);
+  padding: 1.5rem;
+}
+
+.card-img {
+  width: 5rem;
+  height: 5rem;
+}
+
+.searchSongs {
+  width: 70%;
+}
+
+::ng-deep .mat-input-element::placeholder {
+  color: grey;
+}

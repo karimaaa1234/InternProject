@@ -14,6 +14,9 @@ export const environment = {
   production: false,
   version: env['npm_package_version'] + '-dev',
   serverUrl: '/api',
+  redirect_uri: 'http://localhost:4200/token',
+  client_id: '47edf49c144940739a4f77370816d781',
+  client_secret: '574cddd4efe54fae852b66a549a76bd3',
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US', 'fr-FR'],
 };

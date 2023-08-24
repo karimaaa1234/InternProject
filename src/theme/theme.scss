@@ -2,3 +2,49 @@ html,
 body {
   margin: 0;
 }
+$header-dark: #2a2a2a;
+$header-light: #eaeaea;
+$body-dark: #202124;
+$body-light: #fafafa;
+$body-content-light: #dedddd;
+$body-content-dark: #323234;
+$button-light: #f2f2f2;
+$button-dark: rgba(196, 196, 196, 0.07);
+$card-shadow: 0 0 16px rgba(0, 0, 0);
+$card-shadow-light: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+  0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+$data-shadow: 0 0 25px rgb(0, 0, 0);
+$button-shadow-light: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+  0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+$cards-light: rgba(234, 234, 234, 0.18);
+$form-dark: #3e3e3e;
+
+html[data-theme="light"] {
+  --color-text: #{$header-dark};
+  --header-background: #{$header-light};
+  --body-background: #{$body-light};
+  --button-background: #{$body-light};
+  --body-content: #{$body-content-dark};
+  --cards-container: #{$cards-light};
+  --cards: #{white};
+  --button: #{$button-light};
+  --card-shadow: #{$card-shadow-light};
+  --data-shadow: #{$card-shadow-light};
+  --button-shadow: #{$button-shadow-light};
+  --playlist-form: #{white};
+}
+
+html[data-theme="dark"] {
+  --color-text: #{$header-light};
+  --header-background: #{$header-dark};
+  --body-background: #{$body-dark};
+  --button-background: #{$header-dark};
+  --body-content: #{$body-content-light};
+  --cards-container: #{$header-dark};
+  --cards: #{$body-dark};
+  --button: #{$button-dark};
+  --card-shadow: #{$card-shadow};
+  --data-shadow: #{$data-shadow};
+  --button-shadow: #{$card-shadow};
+  --playlist-form: #{$form-dark};
+}

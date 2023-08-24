@@ -9,7 +9,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { I18nModule } from '@app/i18n';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 @NgModule({
   imports: [
     CommonModule,
@@ -19,6 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MaterialModule,
     HomeRoutingModule,
     I18nModule,
+    NgxSkeletonLoaderModule,
     FontAwesomeModule,
   ],
   declarations: [HomeComponent],

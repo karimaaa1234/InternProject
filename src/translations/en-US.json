@@ -5,7 +5,7 @@
   "Home": "Home",
   "Logged in as": "Logged in as",
   "Login": "Login",
-  "Logout": "Logout",
+  "Log Out": "Log Out",
   "Password": "Password",
   "Password is required": "Password is required",
   "Username": "Username",
@@ -13,5 +13,10 @@
   "Username or password incorrect.": "Username or password incorrect.",
   "Remember me": "Remember me",
   "Version": "Version",
-  "Spotify Search": "Spotify Search"
+  "Spotify Search": "Spotify Search",
+  "Search for an Artist...": "Search for an Artist...",
+  "Search": "Search",
+  "followers": "followers",
+  "Preview": "Preview",
+  "tracks": "tracks"
 }

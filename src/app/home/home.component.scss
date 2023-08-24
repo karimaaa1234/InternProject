@@ -1,53 +1,123 @@
 .container {
-  text-align: center;
   display: flex;
   flex-direction: column;
+  background-color: var(--body-background);
+  color: var(--body-content);
 }
 
-.mat-card {
+.content {
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  min-height: calc(100vh - 64px);
+  align-content: center;
   justify-content: center;
-  height: calc(100vh - 97px);
 }
 
-.mat-toolbar {
+.card--subtitle {
+  color: var(--body-content);
+}
+
+.search {
+  margin-top: 2rem;
+  align-self: center;
+  width: 90%;
+  max-width: 40rem;
+}
+
+.search--form {
+  width: 100%;
+}
+
+.body:focus-within {
+  align-self: flex-start;
+}
+
+.body {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  align-self: center;
+  transition: all 1s;
+}
+
+.loader {
+  display: flex;
+  flex-basis: 100%;
+  flex-flow: row;
   flex-direction: row;
-  justify-content: space-between;
+  align-self: center;
+  min-width: 15rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
-.left {
-  align-items: center;
+.loader:nth-child(3n + 1) {
+  clear: left;
 }
 
-.right {
+.card {
+  height: 21rem;
+  flex-wrap: wrap;
+  width: 14rem;
+  margin: 2rem;
+  background-color: var(--body-background);
+  color: var(--body-content);
+  //box-shadow: var(--card-shadow);
+}
+
+.data {
   display: flex;
+  flex-basis: 100%;
+  flex-flow: row;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  align-content: center;
+  align-self: center;
+  min-width: 15rem;
+  max-width: 110rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: var(--cards-container);
+  box-shadow: var(--data-shadow);
 }
 
-.right button {
-  margin-right: 1rem;
-  margin-left: 1.5rem;
+.card--title {
+  font-size: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 14rem;
 }
 
-.mat-form-field {
-  width: 40rem;
+img {
+  height: 15rem;
+  align-self: center;
 }
 
-.search--bar {
-  transition: all 3s;
+.card--button {
+  box-shadow: var(--button-shadow);
+  background-color: var(--cards-container);
+  color: var(--body-content);
 }
 
-.search--bar:blank {
-  align-self: start;
-  width: 20rem;
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: var(--body-content);
+}
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: var(--body-content);
+}
+::ng-deep .mat-input-element {
+  caret-color: var(--body-content);
 }
 
-fa-icon {
-  color: rgba(30, 215, 96, 255);
-  font-size: 1.25rem;
+::ng-deep .mat-form-field-label {
+  color: var(--body-content);
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: var(--body-content);
+}
+
+::ng-deep .mat-input-element::placeholder {
+  color: grey;
 }

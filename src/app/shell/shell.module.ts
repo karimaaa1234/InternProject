@@ -7,10 +7,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { I18nModule } from '@app/i18n';
 import { MaterialModule } from '@app/material.module';
 import { ShellComponent } from './shell.component';
-import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   imports: [CommonModule, TranslateModule, FlexLayoutModule, MaterialModule, I18nModule, RouterModule],
-  declarations: [HeaderComponent, ShellComponent],
+  declarations: [ShellComponent],
 })
 export class ShellModule {}

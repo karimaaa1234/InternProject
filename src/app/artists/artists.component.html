@@ -1,10 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div class="container">
+  <app-header></app-header>
+  <div class="artist--info" *ngIf="artist">
+    <img src="{{ artist.images[0].url }}" class="artist--img" />
+    <div class="artist--title">
+      <mat-card-title>{{ artist.name }}</mat-card-title>
+      <mat-card-subtitle class="content">Albums</mat-card-subtitle>
+    </div>
+  </div>
+
+  <div *ngIf="isLoadingArtist" class="loader">
+    <ngx-skeleton-loader [theme]="{ height: '15rem', width: '15rem', marginRight: '2rem', marginLeft: '2rem' }">
+    </ngx-skeleton-loader>
+  </div>
+
+  <hr />
+  <div *ngIf="isLoading" class="loader">
+    <app-home-skeleton></app-home-skeleton>
+    <app-home-skeleton></app-home-skeleton>
+    <app-home-skeleton></app-home-skeleton>
+    <app-home-skeleton></app-home-skeleton>
+    <app-home-skeleton></app-home-skeleton>
+  </div>
+
+  <div class="albums">
+    <div *ngFor="let album of albums">
+      <mat-card class="card">
+        <img src="{{ album.images[0].url }}" class="album--img" />
+        <mat-card-title class="card--title" *ngIf="album.name.length > 21">
+          <span *ngFor="let number of numbers">{{ album.name[number] }}</span
+          >...
+        </mat-card-title>
+        <mat-card-title class="card--title" *ngIf="album.name.length <= 21">
+          {{ album.name }}
+        </mat-card-title>
+        <mat-card-subtitle class="card--subtitle">
+          <div *ngIf="album.artists.length > 2">
+            <div>
+              {{ album.artists[0].name }} <br />
+              {{ album.artists[1].name }} + {{ album.artists.length - 2 }} more
+            </div>
+          </div>
+          <div *ngIf="album.artists.length <= 2">
+            <div *ngFor="let artist of album.artists">
+              {{ artist.name }}
+            </div>
+          </div>
+        </mat-card-subtitle>
+        <mat-card-content class="card--content">
+          {{ album.release_date }}
+          <br />
+          {{ album.total_tracks }} {{ 'tracks' | translate }}
+        </mat-card-content>
+        <mat-card-footer class="footer">
+          <button mat-flat-button class="preview--button" (click)="goToLink(album.external_urls.spotify)">
+            Preview on Spotify
+          </button>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
+</div>
