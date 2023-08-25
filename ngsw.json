@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1692959892408,
+  "timestamp": 1692967742516,
   "index": "https://karimaaa1234.github.io/InternProject/index.html",
   "assetGroups": [
     {
@@ -11,13 +11,12 @@
         "ignoreVary": true
       },
       "urls": [
-        "https://karimaaa1234.github.io/InternProject/10.b82cc721e49627d2.js",
         "https://karimaaa1234.github.io/InternProject/favicon.ico",
         "https://karimaaa1234.github.io/InternProject/index.html",
-        "https://karimaaa1234.github.io/InternProject/main.77b347542a1d6e9c.js",
+        "https://karimaaa1234.github.io/InternProject/main.d3d6d288c808d529.js",
         "https://karimaaa1234.github.io/InternProject/manifest.webmanifest",
-        "https://karimaaa1234.github.io/InternProject/polyfills.986851593b12b323.js",
-        "https://karimaaa1234.github.io/InternProject/runtime.c8399294ee3b3ac6.js",
+        "https://karimaaa1234.github.io/InternProject/polyfills.6b8cb403f21d44ee.js",
+        "https://karimaaa1234.github.io/InternProject/runtime.a9f40d412bc65e0f.js",
         "https://karimaaa1234.github.io/InternProject/styles.8ad9cbc60a107bbf.css"
       ],
       "patterns": []
@@ -42,7 +41,6 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "https://karimaaa1234.github.io/InternProject/10.b82cc721e49627d2.js": "df3c5df7b0ba0a3a71d53e157b9d856c4a3811fa",
     "https://karimaaa1234.github.io/InternProject/MaterialIcons-Regular.14b0bb77466d9f38.woff": "e5fa525648c74213cdeb8554aa77057f0c4d8488",
     "https://karimaaa1234.github.io/InternProject/MaterialIcons-Regular.d1b99623aaa86364.woff2": "7e67acf56f6d527980504c3d0dd2a30d706e5339",
     "https://karimaaa1234.github.io/InternProject/MaterialIcons-Regular.fa58bcb97f2ed321.ttf": "b582b869fe05f35f5a1d08cdf50b2b5eb37bae44",
@@ -50,11 +48,11 @@
     "https://karimaaa1234.github.io/InternProject/assets/ngx-rocket-logo.png": "0ac53fd27406fe5a36e68285315fb0012e54058e",
     "https://karimaaa1234.github.io/InternProject/assets/ngx-rocket-logo@192.png": "461b730f9c6dc818f8af9acbe62dfde24dc02d7a",
     "https://karimaaa1234.github.io/InternProject/favicon.ico": "b65083d46bbf63692d5d2cdd69622e6d7ecae317",
-    "https://karimaaa1234.github.io/InternProject/index.html": "957c06f4141fdaca3931c3337b0255dd2f1efae9",
-    "https://karimaaa1234.github.io/InternProject/main.77b347542a1d6e9c.js": "cabab89c2ce0e56418f3d4de50f229da56596bb0",
+    "https://karimaaa1234.github.io/InternProject/index.html": "c4f9625721f158e0d18bde9cf19d84a6f34f1e42",
+    "https://karimaaa1234.github.io/InternProject/main.d3d6d288c808d529.js": "d0970b7cfe321a4a606f917672a3e4df75fbb2a4",
     "https://karimaaa1234.github.io/InternProject/manifest.webmanifest": "fde24f009fc5dfd22922549d417d5d18e477f5bb",
-    "https://karimaaa1234.github.io/InternProject/polyfills.986851593b12b323.js": "571eb76a38cc8303c4fdddfdadd272439a8bf552",
-    "https://karimaaa1234.github.io/InternProject/runtime.c8399294ee3b3ac6.js": "d98d8bf550324de0034f8764a8eb9c0afcc0d710",
+    "https://karimaaa1234.github.io/InternProject/polyfills.6b8cb403f21d44ee.js": "6eee62c6a7977f773729c24745ef7310e0c482e5",
+    "https://karimaaa1234.github.io/InternProject/runtime.a9f40d412bc65e0f.js": "0f8ff5481411fea6566bfe4e56df34b3eab1b4d0",
     "https://karimaaa1234.github.io/InternProject/styles.8ad9cbc60a107bbf.css": "a1728062f40c4c0d0acba7dbf464ce7dc2b033fa"
   },
   "navigationUrls": [
