@@ -1,0 +1,79 @@
+{
+  "configVersion": 1,
+  "timestamp": 1692957741474,
+  "index": "https://karimaaa1234.github.io/InternProject/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://karimaaa1234.github.io/InternProject/10.b82cc721e49627d2.js",
+        "https://karimaaa1234.github.io/InternProject/favicon.ico",
+        "https://karimaaa1234.github.io/InternProject/index.html",
+        "https://karimaaa1234.github.io/InternProject/main.4ff5051e9190e422.js",
+        "https://karimaaa1234.github.io/InternProject/manifest.webmanifest",
+        "https://karimaaa1234.github.io/InternProject/polyfills.986851593b12b323.js",
+        "https://karimaaa1234.github.io/InternProject/runtime.c8399294ee3b3ac6.js",
+        "https://karimaaa1234.github.io/InternProject/styles.8ad9cbc60a107bbf.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://karimaaa1234.github.io/InternProject/MaterialIcons-Regular.14b0bb77466d9f38.woff",
+        "https://karimaaa1234.github.io/InternProject/MaterialIcons-Regular.d1b99623aaa86364.woff2",
+        "https://karimaaa1234.github.io/InternProject/MaterialIcons-Regular.fa58bcb97f2ed321.ttf",
+        "https://karimaaa1234.github.io/InternProject/apple-touch-icon.png",
+        "https://karimaaa1234.github.io/InternProject/assets/ngx-rocket-logo.png",
+        "https://karimaaa1234.github.io/InternProject/assets/ngx-rocket-logo@192.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://karimaaa1234.github.io/InternProject/10.b82cc721e49627d2.js": "df3c5df7b0ba0a3a71d53e157b9d856c4a3811fa",
+    "https://karimaaa1234.github.io/InternProject/MaterialIcons-Regular.14b0bb77466d9f38.woff": "e5fa525648c74213cdeb8554aa77057f0c4d8488",
+    "https://karimaaa1234.github.io/InternProject/MaterialIcons-Regular.d1b99623aaa86364.woff2": "7e67acf56f6d527980504c3d0dd2a30d706e5339",
+    "https://karimaaa1234.github.io/InternProject/MaterialIcons-Regular.fa58bcb97f2ed321.ttf": "b582b869fe05f35f5a1d08cdf50b2b5eb37bae44",
+    "https://karimaaa1234.github.io/InternProject/apple-touch-icon.png": "229df2094cc590088de00ea97a1eb4e4493101d2",
+    "https://karimaaa1234.github.io/InternProject/assets/ngx-rocket-logo.png": "0ac53fd27406fe5a36e68285315fb0012e54058e",
+    "https://karimaaa1234.github.io/InternProject/assets/ngx-rocket-logo@192.png": "461b730f9c6dc818f8af9acbe62dfde24dc02d7a",
+    "https://karimaaa1234.github.io/InternProject/favicon.ico": "b65083d46bbf63692d5d2cdd69622e6d7ecae317",
+    "https://karimaaa1234.github.io/InternProject/index.html": "948466d380e0f04ecc4d40ebbfea8e0f7612242f",
+    "https://karimaaa1234.github.io/InternProject/main.4ff5051e9190e422.js": "ba5dd78abf75eacd77c112b3eef9bd18c6893a8d",
+    "https://karimaaa1234.github.io/InternProject/manifest.webmanifest": "fde24f009fc5dfd22922549d417d5d18e477f5bb",
+    "https://karimaaa1234.github.io/InternProject/polyfills.986851593b12b323.js": "571eb76a38cc8303c4fdddfdadd272439a8bf552",
+    "https://karimaaa1234.github.io/InternProject/runtime.c8399294ee3b3ac6.js": "d98d8bf550324de0034f8764a8eb9c0afcc0d710",
+    "https://karimaaa1234.github.io/InternProject/styles.8ad9cbc60a107bbf.css": "a1728062f40c4c0d0acba7dbf464ce7dc2b033fa"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
