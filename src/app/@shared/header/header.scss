@@ -12,9 +12,18 @@
   margin-right: 0.5vw;
 }
 
+::ng-deep app-language-selector :focus {
+  border: 1px solid black;
+}
+
 .menu-button {
   color: #1ed760;
   //padding: 1rem;
+}
+
+::ng-deep .mat-icon :focus,
+:active:focus {
+  border: black solid 1px;
 }
 
 .menu-button mat-icon {
@@ -55,6 +64,7 @@
 
 ::ng-deep.mat-button-focus-overlay {
   background-color: transparent;
+  border: 1px solid black;
 }
 
 ::ng-deep .menu {
@@ -107,4 +117,15 @@
 
 ::ng-deep .mat-checkbox-frame {
   border-color: var(--body-content) !important;
+}
+
+a.nav-link {
+  display: inline-block;
+  opacity: 0;
+  position: relative;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+  opacity: 1;
 }

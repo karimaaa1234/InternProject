@@ -1,10 +1,11 @@
 <div class="container">
   <app-header></app-header>
+
   <div class="artist--info" *ngIf="artist">
-    <img src="{{ artist.images[0].url }}" class="artist--img" />
+    <img tabindex="0" id="main" alt="artist image" src="{{ artist.images[0].url }}" class="artist--img" />
     <div class="artist--title">
-      <mat-card-title>{{ artist.name }}</mat-card-title>
-      <mat-card-subtitle class="content">Albums</mat-card-subtitle>
+      <mat-card-title tabindex="0" [attr.aria-label]="'artist name'">{{ artist.name }}</mat-card-title>
+      <mat-card-subtitle tabindex="0" class="content">Albums</mat-card-subtitle>
     </div>
   </div>
 
@@ -22,34 +23,32 @@
     <app-home-skeleton></app-home-skeleton>
   </div>
 
-  <div class="albums">
+  <div class="albums" tabindex="-1">
     <div *ngFor="let album of albums">
       <mat-card class="card">
-        <img src="{{ album.images[0].url }}" class="album--img" />
-        <mat-card-title class="card--title" *ngIf="album.name.length > 21">
+        <img tabindex="0" alt="album image" src="{{ album.images[0].url }}" class="album--img" />
+        <mat-card-title tabindex="0" class="card--title" *ngIf="album.name.length > 21">
           <span *ngFor="let number of numbers">{{ album.name[number] }}</span
           >...
         </mat-card-title>
-        <mat-card-title class="card--title" *ngIf="album.name.length <= 21">
+        <mat-card-title tabindex="0" class="card--title" *ngIf="album.name.length <= 21">
           {{ album.name }}
         </mat-card-title>
         <mat-card-subtitle class="card--subtitle">
           <div *ngIf="album.artists.length > 2">
-            <div>
-              {{ album.artists[0].name }} <br />
-              {{ album.artists[1].name }} + {{ album.artists.length - 2 }} more
-            </div>
+            <span tabindex="0">{{ album.artists[0].name }} </span> <br />
+            <span tabindex="0"> {{ album.artists[1].name }} + {{ album.artists.length - 2 }} more </span>
           </div>
           <div *ngIf="album.artists.length <= 2">
-            <div *ngFor="let artist of album.artists">
+            <div tabindex="0" *ngFor="let artist of album.artists">
               {{ artist.name }}
             </div>
           </div>
         </mat-card-subtitle>
         <mat-card-content class="card--content">
-          {{ album.release_date }}
+          <span tabindex="0">{{ album.release_date }}</span>
           <br />
-          {{ album.total_tracks }} {{ 'tracks' | translate }}
+          <span tabindex="0"> {{ album.total_tracks }} {{ 'tracks' | translate }} </span>
         </mat-card-content>
         <mat-card-footer class="footer">
           <button mat-flat-button class="preview--button" (click)="goToLink(album.external_urls.spotify)">

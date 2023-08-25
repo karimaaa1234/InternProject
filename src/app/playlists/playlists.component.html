@@ -1,12 +1,12 @@
 <div class="container">
   <app-header></app-header>
   <div class="content">
-    <div class="title">{{ username }}'s Playlists</div>
+    <div class="title" tabindex="0" id="main">{{ username }}'s Playlists</div>
     <div class="button">
       <button
         class="add-button"
         mat-icon-button
-        aria-label="Example icon button with a vertical three dot icon"
+        aria-label="Create a new playlist"
         (mouseenter)="showText()"
         (mouseleave)="hideText()"
         (click)="newPlaylist()"
@@ -15,37 +15,46 @@
       </button>
     </div>
     <div class="playlists">
-      <div *ngFor="let playlist of results">
-        <mat-card class="card">
-          <div class="card-content">
-            <div
-              class="card-img"
-              *ngIf="playlist && playlist['images'] && playlist['images'][0] && playlist['images'][0]['url']"
-            >
-              <img [src]="playlist['images'][0]['url']" alt="Playlist Image" />
-            </div>
-            <div
-              class="card-img"
-              *ngIf="!playlist || !playlist['images'] || !playlist['images'][0] || !playlist['images'][0]['url']"
-            >
-              <img src="https://files.readme.io/f2e91bb-portalDocs-sonosApp-defaultArtAlone.png" alt="Playlist Image" />
-            </div>
+      <h1 *ngIf="!results[0]" class="no-playlists" tabindex="0">No playlists yet :(</h1>
+      <div *ngIf="results[0]">
+        <div *ngFor="let playlist of results">
+          <mat-card class="card">
+            <div class="card-content">
+              <div
+                class="card-img"
+                *ngIf="playlist && playlist['images'] && playlist['images'][0] && playlist['images'][0]['url']"
+              >
+                <img tabindex="0" [src]="playlist['images'][0]['url']" alt="Playlist Image" />
+              </div>
+              <div
+                class="card-img"
+                *ngIf="!playlist || !playlist['images'] || !playlist['images'][0] || !playlist['images'][0]['url']"
+              >
+                <img
+                  tabindex="0"
+                  src="https://files.readme.io/f2e91bb-portalDocs-sonosApp-defaultArtAlone.png"
+                  alt="Playlist Image"
+                />
+              </div>
 
-            <div class="card-titles">
-              <mat-card-title>{{ playlist['name'] }}</mat-card-title>
-              <mat-card-subtitle>{{ playlist['tracks']['total'] }} tracks</mat-card-subtitle>
-              <span>Owner: {{ playlist['owner']['display_name'] }}</span>
-              <div *ngIf="playlist['public']" class="card-component">
-                <fa-icon [icon]="faUnlockAlt"> </fa-icon> Public
-              </div>
-              <div *ngIf="!playlist['public']" class="card-component"><fa-icon [icon]="faLock"></fa-icon> Private</div>
-              <div *ngIf="playlist['description']" class="card-component">
-                <mat-card-content class="card-desc">Description: {{ playlist['description'] }}</mat-card-content>
+              <div class="card-titles">
+                <mat-card-title tabindex="0">{{ playlist['name'] }}</mat-card-title>
+                <mat-card-subtitle tabindex="0">{{ playlist['tracks']['total'] }} tracks</mat-card-subtitle>
+                <span tabindex="0">Owner: {{ playlist['owner']['display_name'] }}</span>
+                <div tabindex="0" *ngIf="playlist['public']" class="card-component">
+                  <fa-icon [icon]="faUnlockAlt"> </fa-icon> Public
+                </div>
+                <div tabindex="0" *ngIf="!playlist['public']" class="card-component">
+                  <fa-icon [icon]="faLock"></fa-icon> Private
+                </div>
+                <div tabindex="0" *ngIf="playlist['description']" class="card-component">
+                  <mat-card-content class="card-desc">Description: {{ playlist['description'] }}</mat-card-content>
+                </div>
               </div>
             </div>
-          </div>
-          <button mat-raised-button class="card-button" (click)="viewPlaylist(playlist['id'])">View Playlist</button>
-        </mat-card>
+            <button mat-raised-button class="card-button" (click)="viewPlaylist(playlist['id'])">View Playlist</button>
+          </mat-card>
+        </div>
       </div>
     </div>
   </div>

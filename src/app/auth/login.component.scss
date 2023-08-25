@@ -44,3 +44,11 @@
 .left {
   align-items: center;
 }
+
+::ng-deep.mat-button-focus-overlay {
+  border: 5px solid black;
+}
+
+::ng-deep.mat-button-focus-overlay {
+  box-shadow: 5px 5px 5px 5px black;
+}

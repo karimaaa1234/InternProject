@@ -4,65 +4,92 @@
     <mat-card class="title-card">
       <div *ngIf="results">
         <div *ngIf="results.images?.[0]?.url; else defaultImage">
-          <img src="{{ results.images[0].url }}" class="playlist-img" />
+          <img tabindex="0" alt="Playlist Image" src="{{ results.images[0].url }}" class="playlist-img" />
         </div>
         <ng-template #defaultImage>
-          <img src="https://i.scdn.co/image/ab6761610000e5eb15d8e761586590f74af0dd37" class="playlist-img" />
+          <img
+            tabindex="0"
+            alt="Playlist Image"
+            src="https://i.scdn.co/image/ab6761610000e5eb15d8e761586590f74af0dd37"
+            class="playlist-img"
+          />
         </ng-template>
       </div>
       <div class="title-content" *ngIf="results">
-        <mat-card-title class="playlist-name">
+        <mat-card-title class="playlist-name" tabindex="0" id="main">
           {{ results['name'] }}
         </mat-card-title>
         <mat-card-subtitle class="playlist-subtitle">
-          Owner: {{ owner }} <br />
-          {{ total }} tracks
+          <span tabindex="0"> Owner: {{ owner }} </span> <br />
+          <span tabindex="0"> {{ total }} tracks </span>
         </mat-card-subtitle>
         <div *ngIf="results['description']">
-          <mat-card-content class="playlist-description"> Description: {{ results['description'] }} </mat-card-content>
+          <mat-card-content tabindex="0" class="playlist-description">
+            Description: {{ results['description'] }}
+          </mat-card-content>
         </div>
       </div>
     </mat-card>
 
     <div class="cards-container">
-      <div class="title" *ngIf="total > 0">Tracks:</div>
+      <div class="title" tabindex="0" *ngIf="total > 0">Tracks:</div>
       <div *ngIf="results && results.tracks && results.tracks.items">
         <div *ngFor="let item of results.tracks.items; index as i">
           <div *ngIf="show()">
             <mat-card class="card">
-              <div class="card-index">{{ i + 1 }}</div>
+              <div class="card-index" tabindex="0">{{ i + 1 }}</div>
               <div *ngIf="item.track?.album?.images?.[0]?.url; else defaultAlbumImage">
-                <img src="{{ item['track']['album']['images'][0]['url'] }}" class="card-img" />
+                <img
+                  tabindex="0"
+                  alt="track album image"
+                  src="{{ item['track']['album']['images'][0]['url'] }}"
+                  class="card-img"
+                />
               </div>
               <ng-template #defaultAlbumImage>
-                <img src="https://i.scdn.co/image/ab6761610000e5eb15d8e761586590f74af0dd37" class="card-img" />
+                <img
+                  tabindex="0"
+                  alt="track album image"
+                  src="https://i.scdn.co/image/ab6761610000e5eb15d8e761586590f74af0dd37"
+                  class="card-img"
+                />
               </ng-template>
               <div class="card-content">
-                <mat-card-title class="card-title">{{ item['track']['name'] }}</mat-card-title>
-                <mat-card-subtitle class="card-subtitle">{{
+                <mat-card-title tabindex="0" class="card-title">{{ item['track']['name'] }}</mat-card-title>
+                <mat-card-subtitle tabindex="0" class="card-subtitle">{{
                   item['track']['album']['artists'][0]['name']
                 }}</mat-card-subtitle>
               </div>
-              <div class="duration">{{ number(item['track']['duration_ms'] / 60000) }}</div>
+              <div class="duration" tabindex="0">{{ number(item['track']['duration_ms'] / 60000) }}</div>
             </mat-card>
           </div>
           <div *ngIf="!show()">
             <div *ngIf="i < 5">
               <mat-card class="card">
-                <div class="card-index">{{ i + 1 }}</div>
+                <div tabindex="0" class="card-index">{{ i + 1 }}</div>
                 <div *ngIf="item.track?.album?.images?.[0]?.url; else defaultAlbumImage">
-                  <img src="{{ item['track']['album']['images'][0]['url'] }}" class="card-img" />
+                  <img
+                    tabindex="0"
+                    alt="track album image"
+                    src="{{ item['track']['album']['images'][0]['url'] }}"
+                    class="card-img"
+                  />
                 </div>
                 <ng-template #defaultAlbumImage>
-                  <img src="https://i.scdn.co/image/ab6761610000e5eb15d8e761586590f74af0dd37" class="card-img" />
+                  <img
+                    tabindex="0"
+                    alt="track album image"
+                    src="https://i.scdn.co/image/ab6761610000e5eb15d8e761586590f74af0dd37"
+                    class="card-img"
+                  />
                 </ng-template>
                 <div class="card-content">
-                  <mat-card-title class="card-title">{{ item['track']['name'] }}</mat-card-title>
-                  <mat-card-subtitle class="card-subtitle">{{
+                  <mat-card-title tabindex="0" class="card-title">{{ item['track']['name'] }}</mat-card-title>
+                  <mat-card-subtitle tabindex="0" class="card-subtitle">{{
                     item['track']['album']['artists'][0]['name']
                   }}</mat-card-subtitle>
                 </div>
-                <div class="duration">{{ number(item['track']['duration_ms'] / 60000) }}</div>
+                <div tabindex="0" class="duration">{{ number(item['track']['duration_ms'] / 60000) }}</div>
               </mat-card>
             </div>
           </div>
@@ -80,27 +107,38 @@
         <input
           (keyup)="onSearch($event)"
           matInput
+          aria-label="Search songs and add them to your playlist"
           placeholder="Search.."
           [(ngModel)]="searchValue"
           name="searchValue"
         />
       </mat-form-field>
 
-      <div class="results-title" *ngIf="searchResults">Results:</div>
+      <div class="results-title" *ngIf="searchResults" tabindex="0">Results:</div>
       <div *ngIf="searchResults && searchResults.tracks && searchResults.tracks.items">
         <div *ngFor="let item of searchResults.tracks.items">
           <mat-card class="card">
             <div *ngIf="item.album?.images?.[0]?.url; else defaultAlbumImage">
-              <img src="{{ item['album']['images'][0]['url'] }}" class="card-img" />
+              <img
+                tabindex="0"
+                alt="track album image"
+                src="{{ item['album']['images'][0]['url'] }}"
+                class="card-img"
+              />
             </div>
             <ng-template #defaultAlbumImage>
-              <img src="https://i.scdn.co/image/ab6761610000e5eb15d8e761586590f74af0dd37" class="card-img" />
+              <img
+                tabindex="0"
+                alt="track album image"
+                src="https://i.scdn.co/image/ab6761610000e5eb15d8e761586590f74af0dd37"
+                class="card-img"
+              />
             </ng-template>
             <div class="card-content">
-              <mat-card-title class="card-title">{{ item['name'] }}</mat-card-title>
-              <mat-card-subtitle class="card-subtitle">{{ item['artists'][0]['name'] }}</mat-card-subtitle>
+              <mat-card-title tabindex="0" class="card-title">{{ item['name'] }}</mat-card-title>
+              <mat-card-subtitle tabindex="0" class="card-subtitle">{{ item['artists'][0]['name'] }}</mat-card-subtitle>
             </div>
-            <div class="duration-search">{{ number(item['duration_ms'] / 60000) }}</div>
+            <div tabindex="0" class="duration-search">{{ number(item['duration_ms'] / 60000) }}</div>
             <div class="add-button">
               <button mat-raised-button (click)="addTrack(item['uri'])">Add</button>
             </div>

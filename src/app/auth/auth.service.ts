@@ -16,7 +16,7 @@ export class AuthService {
     window.location.href =
       'https://accounts.spotify.com/authorize?' +
       querystring.stringify({
-        redirect_uri: window.location.origin + '/token',
+        redirect_uri: window.location.origin + environment.redirect_uri,
         response_type: 'code',
         client_id: '47edf49c144940739a4f77370816d781',
         scope: 'user-read-private user-read-email playlist-read-private playlist-modify-private playlist-modify-public',
@@ -48,7 +48,7 @@ export class AuthService {
     localStorage.setItem('code', code);
     const body = new HttpParams()
       .set('code', code)
-      .set('redirect_uri', environment.redirect_uri)
+      .set('redirect_uri', window.location.origin + environment.redirect_uri)
       .set('grant_type', 'authorization_code');
     return this.http
       .post<any>(`${this.url}`, body.toString(), {
@@ -72,7 +72,7 @@ export class AuthService {
     const body = new HttpParams()
       .set('grant_type', 'refresh_token')
 
-      .set('redirect_uri', environment.redirect_uri)
+      .set('redirect_uri', window.location.origin + environment.redirect_uri)
       // @ts-ignore
       .set('code', localStorage.getItem('code'))
       // @ts-ignore

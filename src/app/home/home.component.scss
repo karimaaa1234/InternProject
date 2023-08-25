@@ -13,6 +13,10 @@
   justify-content: center;
 }
 
+.main :focus {
+  border: 1px solid black;
+}
+
 .card--subtitle {
   color: var(--body-content);
 }

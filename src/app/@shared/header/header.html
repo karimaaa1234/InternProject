@@ -1,28 +1,37 @@
 <mat-toolbar class="header">
   <div class="left">
-    <span class="title" (click)="home()" translate>Spotify Search</span>
+    <h1 class="title" tabindex="0" (click)="home()" aria-label="Search for Artists on Spotify" translate>
+      Spotify Search
+    </h1>
   </div>
+  <a class="nav-link" tabindex="1" (click)="skipToMain()">Skip to Main Content </a>
   <div class="right">
-    <div class="theme--toggle">
-      <fa-icon [icon]="faSun"> </fa-icon>
-      <mat-slide-toggle (click)="theme()" [(ngModel)]="!isLight"> </mat-slide-toggle>
-      <fa-icon [icon]="faMoon"> </fa-icon>
+    <div class="theme--toggle" tabindex="0" (click)="theme()" (keydown.enter)="theme()">
+      <fa-icon [icon]="faSun" aria-label="light theme"> </fa-icon>
+      <mat-slide-toggle [(ngModel)]="!isLight" aria-label="select theme " tabindex="-1"> </mat-slide-toggle>
+      <fa-icon [icon]="faMoon" aria-label="dark theme"> </fa-icon>
     </div>
     <app-language-selector></app-language-selector>
     <div *ngIf="loggedIn" class="dropdown">
-      <button mat-button [matMenuTriggerFor]="menu" class="menu-button" [disableRipple]="true">
+      <button
+        aria-label="Drop Down Menu"
+        mat-button
+        [matMenuTriggerFor]="menu"
+        class="menu-button"
+        [disableRipple]="true"
+      >
         <mat-icon class="person-icon">person_pin</mat-icon>
       </button>
       <mat-menu #menu="matMenu" class="menu">
-        <button mat-menu-item (click)="home()">
+        <button aria-label="Go to spotify artist search" mat-menu-item (click)="home()">
           <mat-icon>search</mat-icon>
           <span>Artist Search</span>
         </button>
-        <button mat-menu-item (click)="playlists()">
+        <button mat-menu-item (click)="playlists()" aria-label="go to my playlists">
           <mat-icon>playlist_play</mat-icon>
           <span>My Playlists</span>
         </button>
-        <button mat-menu-item (click)="signOut()">
+        <button mat-menu-item (click)="signOut()" aria-label="log out of my account">
           <fa-icon [icon]="faSpotify" class="spotify"></fa-icon>
           <span translate>Log Out</span>
         </button>

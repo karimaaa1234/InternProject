@@ -11,13 +11,6 @@ import { PlaylistsComponent } from '@app/playlists/playlists.component';
 import { TracksComponent } from '@app/tracks/tracks.component';
 
 const routes: Routes = [
-  Shell.childRoutes([
-    {
-      path: 'about',
-      loadChildren: () => import('./about/about.module').then((m) => m.AboutModule),
-      canActivate: [AuthGuard],
-    },
-  ]),
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'playlists', component: PlaylistsComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent, canActivate: [LoginAuthGuard] },

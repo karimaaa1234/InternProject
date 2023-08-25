@@ -2,10 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   background-color: var(--body-background);
   color: var(--body-content);
-
   min-height: calc(100vh);
 }
 
@@ -100,6 +98,11 @@ hr {
   height: 100%;
   bottom: 0;
   border-radius: 0;
+}
+
+::ng-deep.mat-button-focus-overlay {
+  border: 2px solid black;
+  box-shadow: 2px 2px 2px 2px black;
 }
 
 .card--title {

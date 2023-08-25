@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faSpotify } from '@fortawesome/free-brands-svg-icons';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '@app/auth/auth.service';
-import { Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { AppService } from '@app/app.service';
 
 @Component({
@@ -12,8 +12,20 @@ import { AppService } from '@app/app.service';
 })
 export class HeaderComponent implements OnInit {
   loggedIn: boolean = false;
+  currentUrl: any;
   isLight: boolean = false;
-  constructor(private auth: AuthService, private router: Router, private app: AppService) {}
+  skipLinkPath: string | undefined;
+  constructor(private auth: AuthService, private router: Router, private app: AppService) {
+    router.events.subscribe((e) => {
+      if (e instanceof NavigationEnd) {
+        if (e.url != '') {
+          this.currentUrl = e.url;
+        } else {
+          this.currentUrl = '';
+        }
+      }
+    });
+  }
   faSpotify = faSpotify;
   faSun = faSun;
   faMoon = faMoon;
@@ -38,6 +50,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.skipLinkPath = `${this.router.url}#main-content`;
     this.loggedIn = this.auth.isLoggedIn();
 
     if (!sessionStorage.getItem('data-theme')) {
@@ -49,6 +62,14 @@ export class HeaderComponent implements OnInit {
       this.isLight
         ? document.documentElement.setAttribute('data-theme', 'light')
         : document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  }
+
+  skipToMain() {
+    let element = document.getElementById('main');
+    if (element) {
+      element.setAttribute('tabindex', '-1');
+      element.focus();
     }
   }
 }
