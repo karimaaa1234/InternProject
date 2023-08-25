@@ -1,7 +1,7 @@
 {
   "name": "project",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "ng": "ng",
     "build": "npm run write:env -s && ng build",
